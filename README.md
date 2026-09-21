@@ -34,13 +34,13 @@ podman run -d --name radicale -p 127.0.0.1:5232:5232 \
 The image runs read-only if you set `S6_READ_ONLY_ROOT=1` and give it tmpfs on
 `/run` and `/tmp`.
 
-Create the htpasswd file with `htpasswd -B -c users <name>`, or without apache
-tooling:
+Create the htpasswd file with apache's `htpasswd`:
 
 ```
-podman run --rm --entrypoint /app/bin/python ghcr.io/nuclear-gumbo/radicale:3.8.0 \
-  -c 'import bcrypt,getpass; print("user:" + bcrypt.hashpw(getpass.getpass().encode(), bcrypt.gensalt()).decode())'
+htpasswd -cBC 12 users <name>
 ```
+
+Radicale reads the `$2y$` hashes it produces with `htpasswd_encryption = bcrypt`.
 
 ## Bumping Radicale
 
