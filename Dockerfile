@@ -7,7 +7,7 @@ ARG S6_X86_64_SHA256=e6befcc96a437a3831386ecfc51808c5d3e939dc5fe3c02ae9284599e8a
 
 LABEL org.opencontainers.image.source=https://github.com/nuclear-gumbo/radicale
 LABEL org.opencontainers.image.description="Radicale CalDAV/CardDAV server on alpine + s6-overlay"
-LABEL org.opencontainers.image.licenses=GPL-3.0-only
+LABEL org.opencontainers.image.licenses=GPL-3.0-or-later
 
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-noarch.tar.xz /tmp/noarch.tar.xz
 ADD https://github.com/just-containers/s6-overlay/releases/download/v${S6_OVERLAY_VERSION}/s6-overlay-x86_64.tar.xz /tmp/x86_64.tar.xz
